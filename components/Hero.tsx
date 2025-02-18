@@ -19,7 +19,7 @@ const Hero = () => {
         <div className="flex justify-center relative my-20 z-index-11">
             <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center">
                 <h2 className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80">Achraf Bayi&apos;s Portfolio</h2>
-                <TextGenerateEffect className="text-center text-[40px] md:text-5xl lg text-6xl" words="Transforming Concepts into Seamless User Experiences"/>
+                <TextGenerateEffect className="text-center text-[40px] md:text-5xl lg text-6xl" words="Welcome to my portfolio, where creative design meets thoughtful user experiences”/>
                 <p className="text-center md:tracking-wider mb-4 text-sm md:text-large lg:text-2xl">Hi I&apos;m Achraf, an aspiring Software Engineer based in Canada.</p>
                 <a href="#about">
                     <MagicButton title="Show my work" icon={<FaLocationArrow/>} position='right'/>
