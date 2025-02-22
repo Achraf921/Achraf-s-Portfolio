@@ -218,10 +218,12 @@ export const navItems = [
     {
       id: 1,
       img: "/git.svg",
+      link:"https://github.com/Achraf921"
     },
 
     {
       id: 3,
       img: "/link.svg",
+      link:"https://www.linkedin.com/in/achrafbayi/"
     },
   ];
