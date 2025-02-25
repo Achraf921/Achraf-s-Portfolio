@@ -91,7 +91,7 @@ export const navItems = [
       des: "Retrieved daily images from NASA's APOD API, showcasing dynamic content and scientific explanations.",
       img: "/p67.png",
       iconLists: ["/re.svg", "/tail.svg", "/js.png",],
-      link: "https://nasaapodbyachraf-c6vthfttw-achraf921s-projects.vercel.app/",
+      link: "https://apodnasaapp.netlify.app/",
     },
     {
       id: 4,
