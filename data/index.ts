@@ -7,7 +7,7 @@ export const navItems = [
   export const gridItems = [
     {
       id: 1,
-      title: "Pursuing a Bachelor of Engineering in Software Engineering at Concordia University ",
+      title: "Pursuing a Bachelor of Science in Computer Science at McGill University ",
       description: "",
       className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
       imgClassName: "w-full h-full",
@@ -17,7 +17,7 @@ export const navItems = [
     },
     {
       id: 2,
-      title: "Can intern in Canada 🇨🇦 and the EU 🇪🇺",
+      title: "Does not require sponsorship to work in Canada 🇨🇦 and the EU 🇪🇺",
       description: "",
       className: "lg:col-span-2 md:col-span-3 md:row-span-2",
       imgClassName: "",
@@ -48,7 +48,7 @@ export const navItems = [
   
     {
       id: 5,
-      title: "Currently building a React Native mobile app",
+      title: "I am currently building my next fullstack SAAS project",
       description: "The Inside Scoop",
       className: "md:col-span-3 md:row-span-2",
       imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
@@ -71,6 +71,14 @@ export const navItems = [
   export const projects = [
     {
       id: 1,
+      title: "SNAGZ Online Portal",
+      des: "Fullstack projet that provides an interface for project management and automatizes tasks using Azure's GraphAPI and Shopify's GraphQL API.",
+      img: "/p67.png",
+      iconLists: ["/re.svg", "/js.png",],
+      link: "https://snagz-app.com",
+    },
+    {
+      id: 2,
       title: "EvoGym",
       des: "EvoGym is a gym frontend project which demonstrates best practices in component-based development, showcasing a clean, responsive UI design.",
       img: "/p1.png",
@@ -78,20 +86,12 @@ export const navItems = [
       link: "https://evogymbyachraf.netlify.app/",
     },
     {
-      id: 2,
+      id: 3,
       title: "MoneTrix - HackConcordiaIX",
       des: "Collaborated on a full-stack financial app that uses receipt scanning to save money on purchases and groceries.",
       img: "/p2.png",
       iconLists: ["/re.svg", "/tail.svg", "/js.png", "/py.png", "pg.png"],
       link: "https://monetrix.netlify.app/",
-    },
-    {
-      id: 3,
-      title: "NASA Astronomy Picture of the Day",
-      des: "Retrieved daily images from NASA's APOD API, showcasing dynamic content and scientific explanations.",
-      img: "/p67.png",
-      iconLists: ["/re.svg", "/tail.svg", "/js.png",],
-      link: "https://apodnasaapp.netlify.app/",
     },
     {
       id: 4,
