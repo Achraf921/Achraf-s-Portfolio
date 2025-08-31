@@ -7,7 +7,7 @@ export const navItems = [
   export const gridItems = [
     {
       id: 1,
-      title: "Pursuing a Bachelor of Engineering in Software Engineering at Concordia University ",
+      title: "Pursuing a Bachelor of Science in Computer Science at McGill University ",
       description: "",
       className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
       imgClassName: "w-full h-full",
@@ -48,7 +48,7 @@ export const navItems = [
   
     {
       id: 5,
-      title: "Currently building a React Native mobile app",
+      title: "Currently working on a Medical related Machine-Learning project",
       description: "The Inside Scoop",
       className: "md:col-span-3 md:row-span-2",
       imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
@@ -70,12 +70,13 @@ export const navItems = [
   
   export const projects = [
     {
-      id: 1,
-      title: "EvoGym",
-      des: "EvoGym is a gym frontend project which demonstrates best practices in component-based development, showcasing a clean, responsive UI design.",
-      img: "/p1.png",
-      iconLists: ["/re.svg", "/tail.svg", "/ts.svg"],
-      link: "https://evogymbyachraf.netlify.app/",
+      id:1,
+      title:"SNA GZ customer/internal automation portal",
+      des:"Built a portal allowing to collect, store and use data for documentation, logistics and Shopify automation purposes. ",
+      img:"/sna.png",
+      iconLists:["/nodejs.jpg","/mongo.svg","/aws.png","/re.svg","/dock.svg","/py.png","/graphql.png"],
+      link:"https://snagz-app.com",
+
     },
     {
       id: 2,
@@ -87,6 +88,14 @@ export const navItems = [
     },
     {
       id: 3,
+      title: "EvoGym",
+      des: "EvoGym is a gym frontend project which demonstrates best practices in component-based development, showcasing a clean, responsive UI design.",
+      img: "/p1.png",
+      iconLists: ["/re.svg", "/tail.svg", "/ts.svg"],
+      link: "https://evogymbyachraf.netlify.app/",
+    },
+    {
+      id: 4,
       title: "NASA Astronomy Picture of the Day",
       des: "Retrieved daily images from NASA's APOD API, showcasing dynamic content and scientific explanations.",
       img: "/p67.png",
@@ -94,7 +103,7 @@ export const navItems = [
       link: "https://nasaapodbyachraf-c6vthfttw-achraf921s-projects.vercel.app/",
     },
     {
-      id: 4,
+      id: 5,
       title: "LiftLogic - Workout Generator",
       des: "Created a custom workout plan generator offering goal-based exercise routines and progress tracking.",
       img: "/p4.png",
@@ -102,7 +111,7 @@ export const navItems = [
       link: "https://liftlogicbyachraf.netlify.app/#workout",
     },
     {
-      id: 5,
+      id: 6,
       title: "CodeML, PolyAI Hackathon, ML seat selection predictor",
       des: "Spearheaded the development a ML solution able to predict Air Canada’s user’s seat choice with a 92.07% accuracy.",
       img: "/p5 2.png",
@@ -110,7 +119,7 @@ export const navItems = [
       link: "https://github.com/Achraf921/Hackathon-CodeML-2024",
     },
     {
-      id: 6,
+      id: 7,
       title: "MyOnlinePokedex",
       des: "MyOnlinePokedex is a React-based web application that serves as a comprehensive and interactive Pokédex.",
       img: "/p6.png",
