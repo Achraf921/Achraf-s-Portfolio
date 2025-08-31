@@ -5,10 +5,14 @@ import { withSentryConfig } from "@sentry/nextjs";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   webpack: (config) => {
-    // Force a single copy of three everywhere
+    const nm = (p) => path.resolve(process.cwd(), "node_modules", p);
+
+    // Force a single copy of three everywhere + subpath exports used by three-globe
     config.resolve.alias = {
       ...(config.resolve.alias ?? {}),
-      three: path.resolve(process.cwd(), "node_modules/three"),
+      three: nm("three"),
+      "three/webgpu": nm("three/webgpu"),
+      "three/tsl": nm("three/tsl"),
     };
     return config;
   },

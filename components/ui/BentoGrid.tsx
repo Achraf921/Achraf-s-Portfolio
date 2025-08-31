@@ -1,15 +1,27 @@
 'use client'
 
-import { useState } from "react";
+import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
-import Lottie from "react-lottie";
 import { cn } from "@/lib/utils";
 
+// client-only imports
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
+const BackgroundGradientAnimationDynamic = dynamic(
+  () => import("./GradientBg").then(m => m.BackgroundGradientAnimation),
+  { ssr: false }
+);
+const MagicButton = dynamic(() => import("./MagicButton"), { ssr: false });
 
-import { BackgroundGradientAnimation } from "./GradientBg";
-import {GlobeDemo} from "./GridGlobe";
 import animationData from "@/data/confetti.json";
-import MagicButton from "./MagicButton";
+
+// Hydration guard for dynamic-only UI chunks
+function NoSSR({ children }: { children: React.ReactNode }) {
+  const [m, setM] = useState(false);
+  useEffect(() => setM(true), []);
+  if (!m) return null;
+  return <>{children}</>;
+}
 
 export const BentoGrid = ({
   className,
@@ -18,7 +30,7 @@ export const BentoGrid = ({
 }: {
   className?: string;
   children?: React.ReactNode;
-  id:string;
+  id: string;
 }) => {
   return (
     <div
@@ -54,18 +66,11 @@ export const BentoGridItem = ({
 }) => {
   const leftLists = ["ReactJS", "NextJS", "Typescript"];
   const rightLists = ["Java", "MongoDB", "NodeJS"];
-  const lastLists =["Python", "TailwindCSS", "DSA"]
+  const lastLists = ["Python", "TailwindCSS", "DSA"];
 
   const [copied, setCopied] = useState(false);
-
-  const defaultOptions = {
-    loop: copied,
-    autoplay: copied,
-    animationData: animationData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
 
   const handleCopy = () => {
     const text = "achrafbayi@icloud.com";
@@ -85,19 +90,22 @@ export const BentoGridItem = ({
           "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
       }}
     >
-      <div className={`${id === 6 && "flex justify-center"} h-full"`}>
+      <div className={cn(id === 6 && "flex justify-center", "h-full")}>
         <div className="w-full h-full absolute">
           {img && (
             <img
               src={img}
               alt={img}
-              className={cn(imgClassName, "object-cover object-center ")}
+              className={cn(imgClassName, "object-cover object-center")}
             />
           )}
         </div>
+
         <div
-          className={`absolute right-0 -bottom-5 ${id === 5 && "w-full opacity-80"
-            } `}
+          className={cn(
+            "absolute right-0 -bottom-5",
+            id === 5 && "w-full opacity-80"
+          )}
         >
           {spareImg && (
             <img
@@ -107,10 +115,8 @@ export const BentoGridItem = ({
             />
           )}
         </div>
-        {id === 6 && (
-          <BackgroundGradientAnimation>
-          </BackgroundGradientAnimation>
-        )}
+
+        {id === 6 && <BackgroundGradientAnimationDynamic />}
 
         <div
           className={cn(
@@ -121,70 +127,78 @@ export const BentoGridItem = ({
           <div className="font-sans font-extralight md:max-w-32 md:text-xs lg:text-base text-sm text-[#C1C2D3] z-10">
             {description}
           </div>
-          <div
-            className={`font-sans text-lg lg:text-3xl max-w-96 font-bold z-10`}
-          >
+
+          <div className="font-sans text-lg lg:text-3xl max-w-96 font-bold z-10">
             {title}
           </div>
 
-          {id === 2 && <GlobeDemo />}
+          {/* Globe removed */}
+
           {id === 3 && (
             <div className="flex gap-1 w-fit absolute -right-3">
               <div className="flex flex-col gap-3 md:gap-3">
                 {leftLists.map((item, i) => (
                   <span
                     key={i}
-                    className="  py-2 px-3 text-xs opacity-50 
-                     rounded-lg text-center bg-[#10132E]"
+                    className="py-2 px-3 text-xs opacity-50 rounded-lg text-center bg-[#10132E]"
                   >
                     {item}
                   </span>
                 ))}
-                <span className=" py-4 px-3  rounded-lg text-center bg-[#10132E]"></span>
+                <span className="py-4 px-3 rounded-lg text-center bg-[#10132E]" />
               </div>
+
               <div className="flex flex-col gap-3 md:gap-3">
-                <span className=" py-4 px-3  rounded-lg text-center bg-[#10132E]"></span>
+                <span className="py-4 px-3 rounded-lg text-center bg-[#10132E]" />
                 {rightLists.map((item, i) => (
                   <span
                     key={i}
-                    className="py-2 px-3 text-xs opacity-50 
-                     rounded-lg text-center bg-[#10132E]"
+                    className="py-2 px-3 text-xs opacity-50 rounded-lg text-center bg-[#10132E]"
                   >
                     {item}
                   </span>
                 ))}
               </div>
+
               <div className="flex flex-col gap-3 md:gap-3">
                 {lastLists.map((item, i) => (
                   <span
                     key={i}
-                    className="  py-2 px-3 text-xs opacity-50 
-                     rounded-lg text-center bg-[#10132E]"
+                    className="py-2 px-3 text-xs opacity-50 rounded-lg text-center bg-[#10132E]"
                   >
                     {item}
                   </span>
                 ))}
-                <span className=" py-4 px-3  rounded-lg text-center bg-[#10132E]"></span>
+                <span className="py-4 px-3 rounded-lg text-center bg-[#10132E]" />
               </div>
             </div>
           )}
-          {id === 6 && (
-            <div className="mt-5 relative">
-              <div
-                className={`absolute -bottom-5 right-0 ${copied ? "block" : "block"
-                  }`}
-              >
-                <Lottie options={defaultOptions} height={200} width={400} />
-              </div>
 
-              <MagicButton
-                title={copied ? "Email is Copied!" : "Copy my email address"}
-                icon={<IoCopyOutline />}
-                position="left"
-                handleClick={handleCopy}
-                otherClasses="!bg-[#161A31]"
-              />
-            </div>
+          {id === 6 && (
+            <NoSSR>
+              <div className="mt-5 relative">
+                <div className="absolute -bottom-5 right-0 block">
+                  {mounted && (
+                    <Lottie
+                      animationData={animationData}
+                      loop={copied}
+                      autoplay={copied}
+                      style={{ height: 200, width: 400 }}
+                    />
+                  )}
+                </div>
+
+                {mounted && (
+                  <MagicButton
+                    title={copied ? "Email is Copied!" : "Copy my email address"}
+                    icon={<IoCopyOutline />}
+                    position="left"
+                    handleClick={handleCopy}
+                    otherClasses="!bg-[#161A31]"
+                  />
+                )}
+              </div>
+            </NoSSR>
           )}
         </div>
       </div>
